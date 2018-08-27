@@ -6,4 +6,5 @@ target 'TagLine' do
   # your other pod
   # ...
   pod 'Kingfisher', '~> 4.0'
+  pod 'StompClientLib'
 end

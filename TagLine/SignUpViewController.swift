@@ -95,7 +95,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         
         
-        let url = "http://localhost:8080/users/signup"
+        let url = "https://dry-eyrie-61502.herokuapp.com/users/signup"
         
         
         FirstApi.instance().makeAPICall(url: url, params: postString, method: .POST, success: {(data, response, error, responsedata) in

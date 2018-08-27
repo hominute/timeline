@@ -17,7 +17,7 @@ class CommentTableViewController: UITableViewController {
 
         NotificationCenter.default.addObserver(self, selector: #selector(CommentTableViewController.viewRepliesPressed(_:)), name: NOTIF_VIEW_REPLIES_PRESSED, object: nil)
 
-        comments = DataList().getData()
+//        comments = DataList().getData()
     }
 
     

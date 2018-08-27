@@ -52,7 +52,7 @@ class SignInViewController: UIViewController {
         }else {
             
             
-            let url = "http://localhost:8080/users/login"
+            let url = "https://dry-eyrie-61502.herokuapp.com/users/login"
             
             let postString = "email=\(loginId.text!)&password=\(loginPassword.text!)"
             

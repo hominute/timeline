@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4F87037150ABE2C9238B54E8F6E33F36"
-               BlueprintName = "Kingfisher"
+               BlueprintIdentifier = "3E206244F0118C5B839EDBD852E69B51"
+               BlueprintName = "StompClientLib"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Kingfisher.framework">
+               BuildableName = "StompClientLib.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

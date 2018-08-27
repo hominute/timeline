@@ -116,50 +116,80 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP4-8a-JTj">
-                                    <rect key="frame" x="99" y="11" width="243" height="61"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="mystatus:" destination="K2H-2Z-64X" eventType="touchUpInside" id="6EL-AC-ZGR"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFF-hf-5bh">
-                                    <rect key="frame" x="18" y="80" width="46" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="upPhoto:" destination="K2H-2Z-64X" eventType="touchUpInside" id="vFb-n9-meu"/>
-                                        <segue destination="3Vk-XN-hm6" kind="show" id="Blm-Di-IyD"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLY-Zn-UkP">
-                                    <rect key="frame" x="146" y="80" width="46" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="upVideo:" destination="K2H-2Z-64X" eventType="touchUpInside" id="khC-Gj-igp"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbE-bF-WX0">
-                                    <rect key="frame" x="269" y="80" width="46" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="livecast:" destination="K2H-2Z-64X" eventType="touchUpInside" id="8Xx-Ec-Yxb"/>
-                                    </connections>
-                                </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-hX-bnm">
-                                    <rect key="frame" x="8" y="8" width="67" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="zYL-q2-te6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="118"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVZ-33-R0b">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-hX-bnm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="78"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="D0b-hX-bnm" secondAttribute="height" multiplier="1:1" id="O2j-r5-x7h"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP4-8a-JTj">
+                                                    <rect key="frame" x="78" y="0.0" width="297" height="78"/>
+                                                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="mystatus:" destination="K2H-2Z-64X" eventType="touchUpInside" id="6EL-AC-ZGR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTJ-Ag-dSC">
+                                            <rect key="frame" x="0.0" y="78" width="375" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFF-hf-5bh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="upPhoto:" destination="K2H-2Z-64X" eventType="touchUpInside" id="vFb-n9-meu"/>
+                                                        <segue destination="3Vk-XN-hm6" kind="show" id="Blm-Di-IyD"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLY-Zn-UkP">
+                                                    <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="upVideo:" destination="K2H-2Z-64X" eventType="touchUpInside" id="khC-Gj-igp"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbE-bF-WX0">
+                                                    <rect key="frame" x="250" y="0.0" width="125" height="40"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="livecast:" destination="K2H-2Z-64X" eventType="touchUpInside" id="8Xx-Ec-Yxb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="wbE-bF-WX0" firstAttribute="width" secondItem="UFF-hf-5bh" secondAttribute="width" id="8lt-EY-emi"/>
+                                                <constraint firstAttribute="height" constant="40" id="lL8-Ha-yeg"/>
+                                                <constraint firstItem="CLY-Zn-UkP" firstAttribute="width" secondItem="UFF-hf-5bh" secondAttribute="width" id="uON-Vi-Pa3"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="DTJ-Ag-dSC" secondAttribute="trailing" id="4h3-yq-hpC"/>
+                                        <constraint firstItem="oVZ-33-R0b" firstAttribute="leading" secondItem="zYL-q2-te6" secondAttribute="leading" id="HkP-hO-FeV"/>
+                                        <constraint firstAttribute="trailing" secondItem="oVZ-33-R0b" secondAttribute="trailing" id="azK-vv-0qr"/>
+                                        <constraint firstItem="DTJ-Ag-dSC" firstAttribute="leading" secondItem="zYL-q2-te6" secondAttribute="leading" id="dLK-pQ-eoL"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="zYL-q2-te6" firstAttribute="leading" secondItem="K2H-2Z-64X" secondAttribute="leading" id="6sn-BE-xa8"/>
+                                <constraint firstAttribute="bottom" secondItem="zYL-q2-te6" secondAttribute="bottom" id="N8b-x7-wvJ"/>
+                                <constraint firstItem="zYL-q2-te6" firstAttribute="top" secondItem="K2H-2Z-64X" secondAttribute="top" id="Xa0-a8-Eom"/>
+                                <constraint firstAttribute="trailing" secondItem="zYL-q2-te6" secondAttribute="trailing" id="iYN-2a-dpT"/>
+                            </constraints>
                             <connections>
                                 <outlet property="topprofile" destination="D0b-hX-bnm" id="nmj-I5-OOg"/>
                             </connections>
@@ -306,10 +336,10 @@
             </objects>
             <point key="canvasLocation" x="-3548" y="1252.6236881559221"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Message-->
         <scene sceneID="nS5-Wd-RK6">
             <objects>
-                <viewController id="PDh-Mc-jaw" customClass="MessageViewController" customModule="TagLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Message" id="PDh-Mc-jaw" customClass="MessageViewController" customModule="TagLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7Y-fO-MP1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -476,11 +506,11 @@
             </objects>
             <point key="canvasLocation" x="-2055" y="-546"/>
         </scene>
-        <!--Item 1-->
+        <!--Timeline-->
         <scene sceneID="3V7-Mp-xAa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="934-2P-jPC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Item 1" id="OFH-Iy-dJj"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Timeline" id="OFH-Iy-dJj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sOC-y3-Vdl">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -514,11 +544,11 @@
             </objects>
             <point key="canvasLocation" x="-2258" y="466"/>
         </scene>
-        <!--Item-->
+        <!--Message-->
         <scene sceneID="nCA-IV-Rc5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h50-zn-VQo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="Item" id="iu2-Xq-4VA"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Message" id="iu2-Xq-4VA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H25-Ll-uy9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -533,11 +563,11 @@
             </objects>
             <point key="canvasLocation" x="-918" y="466"/>
         </scene>
-        <!--Item-->
+        <!--My Page-->
         <scene sceneID="JLh-2d-a1J">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R7h-SS-igV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="Item" id="Cgw-LE-dxh"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="My Page" id="Cgw-LE-dxh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rfs-lF-pVe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

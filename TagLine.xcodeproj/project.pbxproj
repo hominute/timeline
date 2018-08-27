@@ -14,7 +14,6 @@
 		EA05CDA1212D00BF000AD9CB /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDA0212D00BF000AD9CB /* CommentTableViewController.swift */; };
 		EA05CDA3212D00D6000AD9CB /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDA2212D00D6000AD9CB /* CommentTableViewCell.swift */; };
 		EA05CDA5212D1E23000AD9CB /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDA4212D1E23000AD9CB /* CommentModel.swift */; };
-		EA05CDA7212D1E48000AD9CB /* DataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDA6212D1E48000AD9CB /* DataList.swift */; };
 		EA05CDA9212D1E7A000AD9CB /* Notif.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDA8212D1E7A000AD9CB /* Notif.swift */; };
 		EA05CDAC212E7057000AD9CB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA05CDAB212E7057000AD9CB /* Extensions.swift */; };
 		EA0FC9C920FB7069000E49CE /* MyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0FC9C820FB7069000E49CE /* MyData.swift */; };
@@ -77,7 +76,6 @@
 		EA05CDA0212D00BF000AD9CB /* CommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 		EA05CDA2212D00D6000AD9CB /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		EA05CDA4212D1E23000AD9CB /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
-		EA05CDA6212D1E48000AD9CB /* DataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataList.swift; sourceTree = "<group>"; };
 		EA05CDA8212D1E7A000AD9CB /* Notif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notif.swift; sourceTree = "<group>"; };
 		EA05CDAB212E7057000AD9CB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EA0FC9C820FB7069000E49CE /* MyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyData.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				EA05CDA0212D00BF000AD9CB /* CommentTableViewController.swift */,
 				EA05CDA2212D00D6000AD9CB /* CommentTableViewCell.swift */,
 				EA05CDA4212D1E23000AD9CB /* CommentModel.swift */,
-				EA05CDA6212D1E48000AD9CB /* DataList.swift */,
 				EA05CDA8212D1E7A000AD9CB /* Notif.swift */,
 			);
 			path = Timeline;
@@ -442,10 +439,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TagLine/Pods-TagLine-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
+				"${BUILT_PRODUCTS_DIR}/StompClientLib/StompClientLib.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StompClientLib.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -464,7 +465,6 @@
 				EACF7E432132E36500939BB7 /* MessageTableViewCell.swift in Sources */,
 				EA65C08420F2740B0076335A /* SignInViewController.swift in Sources */,
 				EA19E1732126ACB100AE2F7A /* MainTableViewController.swift in Sources */,
-				EA05CDA7212D1E48000AD9CB /* DataList.swift in Sources */,
 				EA05CDA1212D00BF000AD9CB /* CommentTableViewController.swift in Sources */,
 				EA65C08220F2738B0076335A /* MyPageViewController.swift in Sources */,
 				EA4AE0262120BD6A008A9AFA /* SecondApi.swift in Sources */,

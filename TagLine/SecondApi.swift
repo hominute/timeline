@@ -42,8 +42,7 @@ class SecondApi: NSObject{
         
         let headers = [
             "Content-Type": "application/json",
-            "Cache-Control": "no-cache",
-            "Postman-Token": "6cb8494b-b87b-4287-9ecf-878c87b40e4e"
+            "Cache-Control": "no-cache"
         ]
         
         
