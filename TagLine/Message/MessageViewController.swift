@@ -12,6 +12,9 @@ import StompClientLib
 class MessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StompClientLibDelegate{
     
     
+    
+    
+    
     var socketClient = StompClientLib()
     
     @IBOutlet var inputMessage: UITextField!
@@ -30,18 +33,17 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
             let url = "https://dry-eyrie-61502.herokuapp.com/chats"
-            
+            let message = MessageData(messageType: "MY", userId: "1", message: self.inputMessage.text)
             SecondApi.instance().makeAPICalls(url: url, params: bodyString, method: .POST, success: {(data, response, error, responsedata) in
-                
-                
                 // API call is Successfull
                 
                 let respondata = responsedata
                 
-               
                  DispatchQueue.main.async {
+                    
                 
-                
+                    
+                    
                 if ((respondata.contains("message"))) {
 
                     MyDTO().DTO(type: "message", repondata: respondata, userdatas: { (userdatad) in
@@ -50,15 +52,14 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                         print("\(errormessage)")
                         self.displayMessage(userMessage: "\(errormessage)")
 
-
                     }
                     )
 
                 } else {
-
-
-
-
+                    
+                    self.list.append(message)
+                    self.tableView.reloadData()
+                    self.scrollToBottom()
                 }
                 }
                 
@@ -66,22 +67,16 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                 
             }, failure: {(data, response, error) in
                 
-//                self.displayMessage(userMessage: "disconnected")
-                
-                
-                
             }
                 
             )
             
-            
-            scrollToBottom()
+           
         }
         
-        let message = MessageData(messageType: "my", userId: "1", message: self.inputMessage.text)
         
-        list.append(message)
-        tableView.reloadData()
+        
+        
         
         inputMessage.text = ""
     }
@@ -104,11 +99,6 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     lazy var list: [MessageData] = {
         var datalist = [MessageData]()
         datalist.append(MessageData(messageType: "other", userId: "2", message: "this is other message 1 "))
-        datalist.append(MessageData(messageType: "other", userId: "2", message: "this is other message 2 "))
-        datalist.append(MessageData(messageType: "my", userId: "1", message: "this is my message 1 "))
-        datalist.append(MessageData(messageType: "other", userId: "2", message: "this is other message 3 "))
-        datalist.append(MessageData(messageType: "my", userId: "1", message: "this is my message 2 "))
-        datalist.append(MessageData(messageType: "other", userId: "2", message: "this is other message 1 "))
 
         
         return datalist
@@ -118,83 +108,70 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
 ///// Cycle func Start
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let urls = NSURL(string: "wss://dry-eyrie-61502.herokuapp.com/timeline-chat/websocket")!
+        socketClient.openSocketWithURLRequest(request: NSURLRequest(url: urls as URL) , delegate: self as StompClientLibDelegate)
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundColor = UIColor.clear
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Message"
         
-        let url = "https://dry-eyrie-61502.herokuapp.com/chats?roomId=3&userId=1&page=0&size=10"
+        let url = "https://dry-eyrie-61502.herokuapp.com/chats?roomId=3&userId=1&page=0&size=1000"
         
-//        FirstApi.instance().makeAPICall(url: url, params:"", method: .GET, success: { (data, response, error, responsedata) in
-//
-//            //             API call is Successfull
-//
-//            guard let data = data else {
-//                print("request failed \(error)")
-//                return
-//            }
-//
-//            do {
-//
-//                let apidata = try JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
-//
-//
-//                let content = apidata["content"] as! NSDictionary
-//                let content = timeline["content"] as! NSArray
-//                //                let images = content!["image"] as! NSArray
-//
-//                for row in content {
-//
-//
-//                    let r = row as! NSDictionary
-//
-//                    let md = MessageData(messageType: "my", userId: "1", message: "")
-//
-//                    let comments = r["comments"] as? NSArray
-//
-//
-//                    if comments != nil {
-//
-//                        for row in comments! {
-//
-//
-//                            let r = row as! NSDictionary
-//
-//
-//                            md.message = r["content"] as? String
-//
-//                            print("댓글있음은? \(md.message!)")
-//
-//                        }
-//                    }else{
-//
-//                        md.message = "" as? String
-//
-//                        print("댓글없음은? \(md.message!)")
-//                    }
-//
-//
-//                    print("\(self.list.count)")
-//                    self.list.append(md)
-//
-//
-//                    DispatchQueue.main.async {
-//
-//                        self.tableView.reloadData()
-//
-//                    }
-//                }
-//            }
-//            catch  {
-//
-//            }
-//            print("API call is Successfull")
-//
-//        }, failure: { (data, response, error) in
-//
-//
-//            // API call Failure
-//            print("fail")
-//        } )
+        FirstApi.instance().makeAPICall(url: url, params:"", method: .GET, success: { (data, response, error, responsedata) in
+
+            //             API call is Successfull
+
+            guard let data = data else {
+                print("request failed \(error)")
+                return
+            }
+
+            do {
+                let apidata = try JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+
+                let content = apidata["content"] as! NSArray
+
+                for row in content {
+
+                    let r = row as! NSDictionary
+
+                    let md = MessageData(messageType: "", userId: "", message: "")
+                    
+                    md.message = r["message"] as? String
+                    md.messageType = r["chatType"] as? String
+                    md.userId = r["userId"] as? String
+
+                    print("\(self.list.count)")
+                    self.list.append(md)
+
+                    DispatchQueue.main.async {
+
+                        self.tableView.reloadData()
+                        self.scrollToBottom()
+
+                    }
+                        
+                    
+                    
+                }
+            }
+            catch  {
+
+            }
+            print("API call is Successfull")
+
+        }, failure: { (data, response, error) in
+
+
+            // API call Failure
+            print("fail")
+        } )
 
        
         tableView.dataSource = self
@@ -203,20 +180,12 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
        
-        let urls = NSURL(string: "wss://dry-eyrie-61502.herokuapp.com/timeline-chat/websocket")!
-        socketClient.openSocketWithURLRequest(request: NSURLRequest(url: urls as URL) , delegate: self as StompClientLibDelegate)
      
         
         
         
 
     }
-    
-    
-    
-
-    
-    
     
     
     
@@ -231,10 +200,49 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         print("JSON Body : \(String(describing: jsonBody))")
     }
     
+    
     func stompClientJSONBody(client: StompClientLib!, didReceiveMessageWithJSONBody jsonBody: String?, withHeader header: [String : String]?, withDestination destination: String) {
         print("DESTIONATION : \(destination)")
         print("String JSON BODY : \(String(describing: jsonBody))")
-    }
+        
+        let message = jsonBody
+        let data = message?.data(using: String.Encoding.utf8)
+
+        
+        do{
+                let messagedatas = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+  
+            
+                    let md = MessageData(messageType: "", userId: "", message: "")
+            
+            let messageTypes = messagedatas["chatType"] as? String
+            
+            print("messageType = \(messageTypes!)")
+            
+            if messageTypes != "MY" {
+            
+                    md.message = messagedatas["message"] as? String
+                    md.messageType = messagedatas["chatType"] as? String
+                    md.userId = messagedatas["userId"] as? String
+            
+                            self.list.append(md)
+            
+                            DispatchQueue.main.async {
+            
+                                self.tableView.reloadData()
+                                print("\(self.list.count)")
+                            }
+            }
+            
+        }catch{
+            print("error")
+        }
+        
+        
+        }
+
+        
+    
     
     func stompClientDidDisconnect(client: StompClientLib!) {
         print("Socket is Disconnected")
@@ -280,7 +288,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         let messageData = list[indexPath.row]
     
-    if messageData.messageType == "my"  {
+    if messageData.messageType == "MY"  {
         
        return getMyMessageCell(messageData: messageData, indexPath: indexPath)
         
@@ -302,7 +310,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCell", for: indexPath) as! MyTableViewCell
         
         cell.message.text = messageData.message
-        
+        cell.message.sizeToFit()
+        cell.message.numberOfLines = 0
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         return cell
         
     }
@@ -312,7 +322,9 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
         
         cell.message.text = messageData.message
-        
+        cell.message.sizeToFit()
+        cell.message.numberOfLines = 0
+        cell.layer.backgroundColor = UIColor.clear.cgColor
         return cell
         
     }
@@ -341,7 +353,7 @@ class MessageViewController: UIViewController, UITableViewDelegate, UITableViewD
                     print("Ok button tapped")
                     DispatchQueue.main.async
                         {
-                            //                            self.dismiss(animated: true, completion: nil)
+                          
                     }
                 }
                 

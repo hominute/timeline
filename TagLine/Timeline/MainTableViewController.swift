@@ -208,7 +208,7 @@ class MainTableViewController: UITableViewController {
         if comment != "" as? String{
             
             cell.timelineComment.text = comment
-            print("셀의 코멘트 = \(comment)")
+//            print("셀의 코멘트 = \(comment)")
         } else {
             
             cell.timelineComment.text = "nocomment"

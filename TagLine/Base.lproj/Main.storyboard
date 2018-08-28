@@ -348,11 +348,12 @@
                                 <rect key="frame" x="16" y="576" width="289" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="adb-lR-f1F">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewCell" rowHeight="108" id="Luf-5n-sM9" customClass="MyTableViewCell" customModule="TagLine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="108"/>
@@ -361,20 +362,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="107.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-vV-lR9">
-                                                    <rect key="frame" x="249" y="43" width="111" height="38"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-vV-lR9">
+                                                    <rect key="frame" x="318" y="10" width="42" height="86.5"/>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="dGP-vV-lR9" secondAttribute="trailing" constant="15" id="2Kb-A5-U87"/>
-                                                <constraint firstItem="dGP-vV-lR9" firstAttribute="leading" secondItem="Mjl-fK-ipX" secondAttribute="leading" constant="249" id="sDt-Vj-WCJ"/>
-                                                <constraint firstItem="dGP-vV-lR9" firstAttribute="top" secondItem="Mjl-fK-ipX" secondAttribute="top" constant="43" id="wMr-cq-bt8"/>
-                                                <constraint firstAttribute="bottom" secondItem="dGP-vV-lR9" secondAttribute="bottom" constant="26.5" id="yZE-dQ-jwE"/>
+                                                <constraint firstItem="dGP-vV-lR9" firstAttribute="centerY" secondItem="Mjl-fK-ipX" secondAttribute="centerY" id="b7M-HM-mcn"/>
+                                                <constraint firstItem="dGP-vV-lR9" firstAttribute="top" secondItem="Mjl-fK-ipX" secondAttribute="top" constant="10" id="qsX-Gn-qrV"/>
+                                                <constraint firstItem="dGP-vV-lR9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mjl-fK-ipX" secondAttribute="leading" constant="200" id="sDt-Vj-WCJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="message" destination="dGP-vV-lR9" id="NGj-vw-qgy"/>
                                         </connections>
@@ -414,7 +418,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zSB-d0-Rdp" firstAttribute="leading" secondItem="Tjo-My-Osl" secondAttribute="trailing" id="AKa-9K-pl8"/>
                             <constraint firstItem="0m6-hL-ojW" firstAttribute="bottom" secondItem="Tjo-My-Osl" secondAttribute="bottom" constant="12" id="HGa-HU-Ixp"/>
